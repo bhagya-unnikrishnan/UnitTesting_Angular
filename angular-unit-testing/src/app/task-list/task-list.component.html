@@ -1,0 +1,16 @@
+<div>
+  <h2>Tasks</h2>
+  <div>
+    <input #taskInput placeholder="Enter task name" />
+    <select #priorityInput>
+      <option value="low">Low</option>
+      <option value="high">High</option>
+    </select>
+    <button (click)="addTask(taskInput.value, priorityInput.value)">Add Task</button>
+  </div>
+  <ul>
+    <li *ngFor="let task of tasks" appHighlight [priority]="task.priority">
+      {{ task.name | status }}
+    </li>
+  </ul>
+</div>
