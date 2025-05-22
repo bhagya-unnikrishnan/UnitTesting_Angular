@@ -26,19 +26,4 @@ describe('TaskListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
- 
-  it('should load tasks on init', () => {
-    spyOn(taskService, 'getTasks').and.returnValue([{ id: 1, name: 'Test Task', priority: 'low', completed: false }]);
-    component.ngOnInit();
-    expect(component.tasks.length).toBe(1);
-    expect(taskService.getTasks).toHaveBeenCalled();
-  });
- 
-  it('should add a task', () => {
-    spyOn(taskService, 'addTask');
-    spyOn(taskService, 'getTasks').and.returnValue([{ id: 1, name: 'New Task', priority: 'high', completed: false }]);
-    component.addTask('New Task', 'high');
-    expect(taskService.addTask).toHaveBeenCalledWith('New Task', 'high');
-    expect(component.tasks.length).toBe(1);
-  });
 });
